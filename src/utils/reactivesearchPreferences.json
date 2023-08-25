@@ -1,0 +1,381 @@
+{
+	"name": "Reactivesearch",
+	"description": "",
+	"pipeline": "good-books-ds",
+	"backend": "elasticsearch",
+	"id": "74c33ea4-0d34-476a-bdb0-2f206f63db7f",
+	"pageSettings": {
+		"currentPage": "home",
+		"pages": {
+			"home": {
+				"componentSettings": {
+					"search": {
+						"componentType": "SEARCHBOX",
+						"customMessages": {
+							"noResults": "No suggestions found for <mark>[term]</mark>"
+						},
+						"searchButton": {
+							"icon": "",
+							"text": "Click here to search"
+						},
+						"redirectUrlText": "Open URL",
+						"redirectUrlIcon": "",
+						"showSearchAs": "relative",
+						"fields": {
+							"title": {
+								"dataField": "original_title",
+								"highlight": true
+							},
+							"description": {
+								"dataField": "authors",
+								"highlight": true
+							},
+							"price": {
+								"dataField": "",
+								"highlight": false
+							},
+							"priceUnit": null,
+							"image": {
+								"dataField": "image",
+								"highlight": false
+							},
+							"handle": {
+								"dataField": "",
+								"highlight": false
+							},
+							"handleViewer": "link",
+							"userDefinedFields": {},
+							"cssSelector": ""
+						},
+						"rsConfig": {
+							"autosuggest": true,
+							"enablePopularSuggestions": false,
+							"enableRecentSearches": false,
+							"highlight": false,
+							"showVoiceSearch": true,
+							"componentType": "SEARCHBOX"
+						}
+					},
+					"result": {
+						"componentType": "REACTIVELIST",
+						"fields": {
+							"title": {
+								"dataField": "original_title",
+								"highlight": true
+							},
+							"description": {
+								"dataField": "authors",
+								"highlight": true
+							},
+							"price": {
+								"dataField": "",
+								"highlight": false
+							},
+							"priceUnit": null,
+							"image": {
+								"dataField": "image",
+								"highlight": false
+							},
+							"handle": {
+								"dataField": "",
+								"highlight": false
+							},
+							"handleViewer": "link",
+							"userDefinedFields": {},
+							"cssSelector": ""
+						},
+						"customMessages": {
+							"resultStats": "[count] products found in [time] ms",
+							"noResults": "No Results Found!"
+						},
+						"rsConfig": {
+							"pagination": false,
+							"infiniteScroll": true,
+							"componentType": "REACTIVELIST"
+						},
+						"sortOptionSelector": [],
+						"resultHighlight": true,
+						"layout": "grid",
+						"viewSwitcher": true,
+						"displayFields": {}
+					}
+				},
+				"indexSettings": {
+					"index": "good-books-ds",
+					"fusionSettings": {
+						"app": null,
+						"profile": null,
+						"searchProfile": null,
+						"meta": null
+					},
+					"endpoint": {
+						"url": "/good-books-ds/_reactivesearch",
+						"method": "POST",
+						"headers": "{\"Authorization\":\"Basic YTAzYTFjYjcxMzIxOjc1YjY2MDNkLTk0NTYtNGE1YS1hZjZiLWE0ODdiMzA5ZWI2MQ==\"}"
+					}
+				}
+			},
+			"search": {
+				"componentSettings": {
+					"authors": {
+						"enabled": true,
+						"rsConfig": {
+							"URLParams": true,
+							"componentId": "authors",
+							"componentType": "MULTILIST",
+							"dataField": "authors.keyword",
+							"placeholder": "Filter by authors",
+							"showSearch": false,
+							"title": "Filter by authors"
+						}
+					},
+					"ratings": {
+						"enabled": true,
+						"rsConfig": {
+							"componentId": "ratings",
+							"componentType": "RATINGSFILTER",
+							"data": [
+								{
+									"end": 5,
+									"label": "4 stars and up",
+									"start": 4
+								},
+								{
+									"end": 5,
+									"label": "3 stars and up",
+									"start": 3
+								},
+								{
+									"end": 5,
+									"label": "2 stars and up",
+									"start": 2
+								},
+								{
+									"end": 5,
+									"label": "> 1 stars",
+									"start": 1
+								}
+							],
+							"dataField": "average_rating",
+							"title": "RatingsFilter"
+						}
+					},
+					"releaseYear": {
+						"enabled": true,
+						"rsConfig": {
+							"componentId": "releaseYear",
+							"componentType": "RANGESLIDER",
+							"dataField": "original_publication_year",
+							"range": {
+								"end": 2019,
+								"start": 1950
+							},
+							"title": "Publication Year",
+							"tooltipTrigger": "hover"
+						}
+					},
+					"result": {
+						"componentType": "REACTIVELIST",
+						"customMessages": {
+							"noResults": "No Results Found!",
+							"resultStats": "[count] products found in [time] ms"
+						},
+						"fields": {
+							"cssSelector": "",
+							"title": {
+								"dataField": "original_title",
+								"highlight": true
+							},
+							"description": {
+								"dataField": "authors",
+								"highlight": true
+							},
+							"price": {
+								"dataField": "",
+								"highlight": false
+							},
+							"priceUnit": null,
+							"image": {
+								"dataField": "image",
+								"highlight": false
+							},
+							"handle": {
+								"dataField": "",
+								"highlight": false
+							},
+							"userDefinedFields": {}
+						},
+						"layout": "grid",
+						"resultHighlight": true,
+						"rsConfig": {
+							"componentId": "result",
+							"componentType": "REACTIVELIST",
+							"infiniteScroll": true,
+							"pagination": false
+						},
+						"sortOptionSelector": [],
+						"viewSwitcher": true,
+						"displayFields": {}
+					},
+					"search": {
+						"componentType": "SEARCHBOX",
+						"customMessages": {
+							"noResults": "No suggestions found for <mark>[term]</mark>"
+						},
+						"fields": {
+							"cssSelector": "",
+							"title": {
+								"dataField": "original_title",
+								"highlight": true
+							},
+							"description": {
+								"dataField": "authors",
+								"highlight": true
+							},
+							"price": {
+								"dataField": "",
+								"highlight": false
+							},
+							"priceUnit": null,
+							"image": {
+								"dataField": "image",
+								"highlight": false
+							},
+							"handle": {
+								"dataField": "",
+								"highlight": false
+							},
+							"userDefinedFields": {}
+						},
+						"redirectUrlIcon": "",
+						"redirectUrlText": "Open URL",
+						"rsConfig": {
+							"autosuggest": true,
+							"componentType": "SEARCHBOX",
+							"enablePopularSuggestions": false,
+							"enableRecentSearches": false,
+							"highlight": false,
+							"showVoiceSearch": true
+						},
+						"searchButton": {
+							"icon": "",
+							"text": "Click here to search"
+						},
+						"showSearchAs": "sticky"
+					},
+					"series": {
+						"enabled": false,
+						"rsConfig": {
+							"componentId": "series",
+							"componentType": "SINGLELIST",
+							"dataField": "original_series.keyword",
+							"showSearch": false,
+							"title": "Select Book Series"
+						}
+					}
+				},
+				"indexSettings": {
+					"endpoint": {
+						"headers": "{\"Authorization\":\"Basic YTAzYTFjYjcxMzIxOjc1YjY2MDNkLTk0NTYtNGE1YS1hZjZiLWE0ODdiMzA5ZWI2MQ==\"}",
+						"method": "POST",
+						"url": "/good-books-ds/_reactivesearch"
+					},
+					"index": "good-books-ds"
+				}
+			}
+		},
+		"fields": {
+			"cssSelector": "",
+			"description": {
+				"dataField": "",
+				"highlight": false
+			},
+			"handle": {
+				"dataField": "",
+				"highlight": false
+			},
+			"handleViewer": "link",
+			"image": {
+				"dataField": "",
+				"highlight": false
+			},
+			"price": {
+				"dataField": "",
+				"highlight": false
+			},
+			"priceUnit": null,
+			"title": {
+				"dataField": "original_title",
+				"highlight": false
+			},
+			"userDefinedFields": {}
+		}
+	},
+	"themeSettings": {
+		"type": "multi-page",
+		"customCss": "",
+		"rsConfig": {
+			"colors": {
+				"primaryColor": "#0B6AFF",
+				"primaryTextColor": "#fff",
+				"textColor": "#424242",
+				"titleColor": "#424242"
+			},
+			"typography": {
+				"fontFamily": "sans-serif"
+			}
+		},
+		"meta": {
+			"bodyBackgroundColor": "#fff",
+			"navbarBackgroundColor": "#001628",
+			"linkColor": "#3eb0ef",
+			"fontWeight": 400
+		}
+	},
+	"globalSettings": {
+		"currency": "USD",
+		"showSelectedFilters": true,
+		"meta": {
+			"branding": {
+				"logoUrl": "",
+				"logoWidth": 200,
+				"logoAlignment": "left"
+			},
+			"deploySettings": {
+				"versionId": ""
+			}
+		},
+		"endpoint": {
+			"url": "/_fusion/_reactivesearch",
+			"method": "",
+			"headers": ""
+		}
+	},
+	"exportSettings": {
+		"exportAs": "embed",
+		"credentials": "a03a1cb71321:75b6603d-9456-4a5a-af6b-a487b309eb61",
+		"openAsPage": false,
+		"type": "other"
+	},
+	"chartSettings": {
+		"charts": []
+	},
+	"syncSettings": null,
+	"authenticationSettings": {
+		"enableAuth0": false,
+		"enableProfilePage": true,
+		"profileSettingsForm": {
+			"viewData": true,
+			"editData": true,
+			"closeAccount": true,
+			"editThemeSettings": true,
+			"editSearchPreferences": true
+		},
+		"clientId": "fQ50eZkW3WlFoDEfHAPBxiOTYmzSXZC7"
+	},
+	"appbaseSettings": {
+		"index": "good-books-ds",
+		"credentials": "a03a1cb71321:75b6603d-9456-4a5a-af6b-a487b309eb61",
+		"url": "https://appbase-demo-ansible-abxiydt-arc.searchbase.io"
+	}
+}

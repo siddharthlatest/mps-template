@@ -1,0 +1,25 @@
+{
+	"image": "https://imgur.com/TWTLCSB.png",
+	"name": "multi-page",
+	"label": "Multi-page Search App",
+	"description": "A multi-search page layout with home page, faceted search page and a detail page",
+	"section": "e-commerce",
+	"section_label": "<h3>E-commerce Search</h3>",
+	"excludePaths": [
+		"/.editorconfig",
+		"/.eslintrc.json",
+		"/.gitignore",
+		"/.nvmrc",
+		"/.prettierrc.json",
+		"/.vscode",
+		"/README.md",
+		"/build",
+		"/yarn.lock"
+	],
+	"pages": {
+		"home": "/",
+		"search": "/search"
+	},
+	"preferences_path": "src/utils/constants.js",
+	"previewURL": "https://multi-page-search.vercel.app/"
+}
